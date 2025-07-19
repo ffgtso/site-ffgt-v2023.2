@@ -1,15 +1,16 @@
 features {
     'autoupdater',
-    'ebtables-filter-multicast',
+	'config-mode-mesh-vpn',
+	'ebtables-filter-multicast',
     'ebtables-filter-ra-dhcp',
     'ebtables-limit-arp',
     'mesh-batman-adv-15',
-    'mesh-vpn-wireguard',
-    'respondd',
+	'mesh-vpn-tunneldigger',
+	'tunneldigger-watchdog',
+	'respondd',
     'status-page',
     'web-advanced',
     'web-wizard',
-    'config-mode-geo-location-osm',
     'radv-filterd',
     'radvd',
     'web-private-wifi',
@@ -18,11 +19,21 @@ features {
 packages {
     'iwinfo',
     'ffac-ssid-changer',
-    'ffac-wg-registration',
-    'ff-web-ap-timer',
     'respondd-module-airtime',
     'tecff-general-workaround',
     'tecff-broken-wlan-workaround',
+	'ffda-domain-director',
+	'ffda-name-conformizer',
+	'ffgt-banner',
+	'ffgt-config-mode-wizard',
+	'ffgt-nachtruhe',
+	'ffgt-preserve-mods',
+	'ffgt-speedtest',
+	'ffho-ap-timer',
+	'gluon-radv-filterd',
+	'gluon-web-logging',
+	'ffac-autoupdater-wifi-fallback',
+	'ffX-migrate-to-4830'
 }
 
 if not device_class('tiny') then
@@ -32,8 +43,6 @@ if not device_class('tiny') then
     }
     packages {
         'openssh-sftp-server',
-        'ffac-autoupdater-wifi-fallback',
-        'ffmuc-custom-banner',
     }
 end
 
