@@ -24,8 +24,6 @@ packages {
     'tecff-broken-wlan-workaround',
 	'ffda-name-conformizer',
 	'ffgt-banner',
-	'ffgt-setup-mode',
-	'ffgt-geolocate',
 	'ffgt-config-mode-wizard',
 	'ffgt-preserve-mods',
 	'ffgt-speedtest',
