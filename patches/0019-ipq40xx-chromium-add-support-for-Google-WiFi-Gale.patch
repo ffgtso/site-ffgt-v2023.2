@@ -1,0 +1,60 @@
+From f05524e32d06c65774429dad60d453fc36b7f1d6 Mon Sep 17 00:00:00 2001
+From: aiyion <git@aiyionpri.me>
+Date: Mon, 14 Jul 2025 14:52:34 +0200
+Subject: [PATCH] ipq40xx-chromium: add support for Google WiFi (Gale)
+
+as well as the target itself
+---
+ .github/filters.yml      | 10 ++++++++++
+ targets/ipq40xx-chromium |  5 +++++
+ targets/targets.mk       |  1 +
+ 3 files changed, 16 insertions(+)
+ create mode 100644 targets/ipq40xx-chromium
+
+diff --git a/.github/filters.yml b/.github/filters.yml
+index df82429f..a59733d7 100644
+--- a/.github/filters.yml
++++ b/.github/filters.yml
+@@ -292,6 +292,16 @@
+     "targets/targets.mk",
+     "targets/bcm27xx.inc"
+   ],
++  "ipq40xx-chromium": [
++    "targets/ipq40xx-chromium",
++    ".github/workflows/build-gluon.yml",
++    "modules",
++    "Makefile",
++    "patches/**",
++    "scripts/**",
++    "targets/generic",
++    "targets/targets.mk"
++  ],
+   "kirkwood-generic": [
+     "targets/kirkwood-generic",
+     ".github/workflows/build-gluon.yml",
+diff --git a/targets/ipq40xx-chromium b/targets/ipq40xx-chromium
+new file mode 100644
+index 00000000..a880ec63
+--- /dev/null
++++ b/targets/ipq40xx-chromium
+@@ -0,0 +1,5 @@
++-- Google
++
++device('google-wifi-gale', 'google_wifi', {
++	broken = true, -- can only be flashed by opening the device, to enter devmode
++})
+diff --git a/targets/targets.mk b/targets/targets.mk
+index 2a47e959..a2eec7dc 100644
+--- a/targets/targets.mk
++++ b/targets/targets.mk
+@@ -29,6 +29,7 @@ $(eval $(call GluonTarget,x86,64))
+ ifeq ($(BROKEN),1)
+ $(eval $(call GluonTarget,bcm27xx,bcm2710)) # BROKEN: Untested
+ $(eval $(call GluonTarget,bcm27xx,bcm2711)) # BROKEN: No 11s support, no reset button, sys LED issues
++$(eval $(call GluonTarget,ipq40xx,chromium)) # BROKEN: Devices cannot be flashed without opening the case
+ $(eval $(call GluonTarget,kirkwood,generic)) # BROKEN: No devices with 11s support
+ $(eval $(call GluonTarget,mvebu,cortexa9)) # BROKEN: No 11s support
+ endif
+-- 
+2.30.2
+

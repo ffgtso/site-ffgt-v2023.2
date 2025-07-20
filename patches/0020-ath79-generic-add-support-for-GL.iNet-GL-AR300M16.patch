@@ -1,0 +1,40 @@
+From c4d32370574e0566faf82ac9ffcd809dc73a87bd Mon Sep 17 00:00:00 2001
+From: Jan-Niklas Burfeind <git@aiyionpri.me>
+Date: Mon, 14 Jul 2025 01:18:06 +0200
+Subject: [PATCH] ath79-generic: add support for GL.iNet GL-AR300M16
+
+---
+ docs/user/supported_devices.rst | 1 +
+ targets/ath79-generic           | 4 ++++
+ 2 files changed, 5 insertions(+)
+
+diff --git a/docs/user/supported_devices.rst b/docs/user/supported_devices.rst
+index 5b0875bd..595dd751 100644
+--- a/docs/user/supported_devices.rst
++++ b/docs/user/supported_devices.rst
+@@ -62,6 +62,7 @@ ath79-generic
+   - 6416A
+   - GL-AR150
+   - GL-AR300M-Lite
++  - GL-AR300M16
+   - GL-AR750
+   - GL-USB150 (Microuter)
+ 
+diff --git a/targets/ath79-generic b/targets/ath79-generic
+index 1d7f7348..99fc188e 100644
+--- a/targets/ath79-generic
++++ b/targets/ath79-generic
+@@ -182,6 +182,10 @@ device('gl.inet-gl-ar300m-lite', 'glinet_gl-ar300m-lite', {
+ 	factory = false,
+ })
+ 
++device('gl.inet-gl-ar300m16', 'glinet_gl-ar300m16', {
++	factory = false,
++})
++
+ device('gl.inet-gl-ar750', 'glinet_gl-ar750', {
+ 	factory = false,
+ 	packages = ATH10K_PACKAGES_QCA9887,
+-- 
+2.30.2
+

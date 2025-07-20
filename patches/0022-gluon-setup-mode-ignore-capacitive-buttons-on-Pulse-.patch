@@ -1,0 +1,44 @@
+From 082ca522c271cd4161ece7307ebce8cefc33c0f7 Mon Sep 17 00:00:00 2001
+From: "github-actions[bot]"
+ <41898282+github-actions[bot]@users.noreply.github.com>
+Date: Wed, 11 Jun 2025 18:36:40 +0200
+Subject: [PATCH] gluon-setup-mode: ignore capacitive buttons on Pulse EX400
+ (#3524)
+
+The Genexis Pulse EX400 has a capacitive WPS button. This button is
+prone to errorous presses, as it is likely to be pressed when picking up
+or touching the device.
+
+The device in question has a recessed hardware reset switch for entering
+setup-mode. Ignore the capacitive touch button on the device in order to
+avoid unwanted activation of setup-mode.
+
+
+(cherry picked from commit ed6823b8a5dce895b7ac776fe027ab19ac675c4b)
+
+Signed-off-by: David Bauer <mail@david-bauer.net>
+Co-authored-by: David Bauer <mail@david-bauer.net>
+---
+ .../files/etc/hotplug.d/button/50-gluon-setup-mode          | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/package/gluon-setup-mode/files/etc/hotplug.d/button/50-gluon-setup-mode b/package/gluon-setup-mode/files/etc/hotplug.d/button/50-gluon-setup-mode
+index 83c0aa2d..83cc8937 100755
+--- a/package/gluon-setup-mode/files/etc/hotplug.d/button/50-gluon-setup-mode
++++ b/package/gluon-setup-mode/files/etc/hotplug.d/button/50-gluon-setup-mode
+@@ -9,6 +9,12 @@ wait_setup_mode() {
+ 	gluon-enter-setup-mode
+ }
+ 
++# Special case for devices that use capacitive buttons
++case "$(board_name)" in
++genexis,pulse-ex400)
++	[ "$BUTTON" = wps ] && exit 0
++	;;
++esac
+ 
+ if [ "$BUTTON" = wps ] || [ "$BUTTON" = reset ] || [ "$BUTTON" = phone ]; then
+ 	case "$ACTION" in
+-- 
+2.30.2
+

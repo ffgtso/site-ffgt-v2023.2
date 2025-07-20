@@ -1,0 +1,63 @@
+From 41d15b3bffbd0d08ff2b3c594d576c2ac8124dbb Mon Sep 17 00:00:00 2001
+From: Sebastian Schaper <openwrt@sebastianschaper.net>
+Date: Fri, 9 May 2025 01:39:02 +0200
+Subject: [PATCH] mediatek-filogic: add Wavlink WL-WN573HX3
+
+also sold as 7Links WLR-1300
+---
+ docs/user/supported_devices.rst                          | 4 ++++
+ package/gluon-core/luasrc/usr/lib/lua/gluon/platform.lua | 3 ++-
+ targets/mediatek-filogic                                 | 8 ++++++++
+ 3 files changed, 14 insertions(+), 1 deletion(-)
+
+diff --git a/docs/user/supported_devices.rst b/docs/user/supported_devices.rst
+index ed6e33fc..78e77ff5 100644
+--- a/docs/user/supported_devices.rst
++++ b/docs/user/supported_devices.rst
+@@ -345,6 +345,10 @@ mediatek-filogic
+ 
+   - UniFi 6 Plus
+ 
++* Wavlink
++
++  - WL-WN573HX3 [#lan_as_wan]_
++
+ * Zyxel
+ 
+   - NWA50AX Pro
+diff --git a/package/gluon-core/luasrc/usr/lib/lua/gluon/platform.lua b/package/gluon-core/luasrc/usr/lib/lua/gluon/platform.lua
+index 68413614..6a572378 100644
+--- a/package/gluon-core/luasrc/usr/lib/lua/gluon/platform.lua
++++ b/package/gluon-core/luasrc/usr/lib/lua/gluon/platform.lua
+@@ -65,7 +65,8 @@ function M.is_outdoor_device()
+ 		return true
+ 
+ 	elseif M.match('mediatek', 'filogic', {
+-		'cudy,ap3000outdoor-v1'
++		'cudy,ap3000outdoor-v1',
++		'wavlink,wl-wn573hx3',
+ 	}) then
+ 		return true
+ 
+diff --git a/targets/mediatek-filogic b/targets/mediatek-filogic
+index 1d6e1723..e06fe87c 100644
+--- a/targets/mediatek-filogic
++++ b/targets/mediatek-filogic
+@@ -80,6 +80,14 @@ device('ubiquiti-unifi-6-plus', 'ubnt_unifi-6-plus', {
+ })
+ 
+ 
++-- Wavlink
++
++device('wavlink-wl-wn573hx3', 'wavlink_wl-wn573hx3', {
++	factory = false,
++	sysupgrade = '-squashfs-WN573HX3-sysupgrade',
++})
++
++
+ -- Zyxel
+ 
+ device('zyxel-nwa50ax-pro', 'zyxel_nwa50ax-pro')
+-- 
+2.30.2
+
