@@ -58,10 +58,10 @@ manifest: build
 	for branch in master tng rawhide experimental testing stable; do \
 		${GLUON_MAKE} manifest GLUON_AUTOUPDATER_BRANCH=$$branch;\
 	done
-	mv -f ${GLUON_BUILD_DIR}/output/* ./output/
+	#mv -f ${GLUON_BUILD_DIR}/output/* ./output/
 
 sign: manifest
-	${GLUON_BUILD_DIR}/contrib/sign.sh ${SECRET_KEY_FILE} output/images/sysupgrade/${GLUON_AUTOUPDATER_BRANCH}.manifest
+	${GLUON_BUILD_DIR}/contrib/sign.sh ${SECRET_KEY_FILE} ${GLUON_BUILD_DIR}/output/images/sysupgrade/${GLUON_AUTOUPDATER_BRANCH}.manifest
 
 ${GLUON_BUILD_DIR}:
 	mkdir -p ${GLUON_BUILD_DIR}
