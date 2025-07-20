@@ -32,6 +32,7 @@ packages {
 	'gluon-radv-filterd',
 	'gluon-web-logging',
 	'ffac-autoupdater-wifi-fallback',
+	'gluon-multi-radio',
 	'ffX-migrate-to-4830'
 }
 
