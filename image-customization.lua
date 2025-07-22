@@ -179,6 +179,8 @@ if device({
     'ubiquiti-edgerouter-x',
     'ubiquiti-edgerouter-x-sfp',
     'zyxel-nwa55axe',
+    'd-link-covr-x1860-a1',
+    'd-link-dap-x1860-a1',
 }) then
     include_usb = false
 end
