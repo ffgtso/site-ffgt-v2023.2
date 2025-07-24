@@ -44,6 +44,7 @@ if not device_class('tiny') then
     }
     packages {
         'openssh-sftp-server',
+        'ffda-gluon-usteer'
     }
 end
 
@@ -68,15 +69,17 @@ pkgs_usb = {
     'usbutils',
 }
 
-pkgs_hid = {
+pkgs_usb_hid = {
     'kmod-usb-hid',
     'kmod-hid-generic',
 }
 
 pkgs_usb_serial = {
     'kmod-usb-serial',
+    'kmod-usb-serial-ch341',
+    'kmod-usb-serial-cp210x',
     'kmod-usb-serial-ftdi',
-    'kmod-usb-serial-pl2303',
+    'kmod-usb-serial-pl2303'
 }
 
 pkgs_usb_storage = {
@@ -213,11 +216,11 @@ end
 
 if target('x86') and not target('x86', 'legacy') then
     packages(pkgs_pci)
-    packages(pkgs_hid)
+    packages(pkgs_usb_hid)
 end
 
 if target('bcm27xx') then
-    packages(pkgs_hid)
+    packages(pkgs_usb_hid)
 end
 
 if target('ramips', 'mt7621') or target('ramips', 'mt7622') or target('mediatek', 'filogic') then
