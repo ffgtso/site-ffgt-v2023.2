@@ -33,7 +33,8 @@ packages {
 	'gluon-web-logging',
 	'ffac-autoupdater-wifi-fallback',
 	'gluon-multi-radio',
-	'ffX-migrate-to-4830'
+	'ffX-migrate-to-4830',
+	'ffgt-eol-device'
 }
 
 if not device_class('tiny') then
