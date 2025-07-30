@@ -18,7 +18,7 @@ features {
 
 packages {
     'iwinfo',
-    'ffac-ssid-changer',
+    'ffgt-ssid-changer',
     'respondd-module-airtime',
     'tecff-general-workaround',
     'tecff-broken-wlan-workaround',
