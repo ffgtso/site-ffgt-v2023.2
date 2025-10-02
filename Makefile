@@ -55,7 +55,7 @@ build: gluon-prepare output-clean
 	done
 
 manifest: build
-	for branch in master tng rawhide experimental testing stable; do \
+	for branch in mns deadend tng master rawhide experimental testing stable; do \
 		${GLUON_MAKE} manifest GLUON_AUTOUPDATER_BRANCH=$$branch;\
 	done
 	#mv -f ${GLUON_BUILD_DIR}/output/* ./output/
