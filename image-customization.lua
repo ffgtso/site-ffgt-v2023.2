@@ -22,7 +22,7 @@ packages {
     'respondd-module-airtime',
     'tecff-general-workaround',
     'tecff-broken-wlan-workaround',
-	'ffda-name-conformizer',
+	'ffgt-name-conformizer',
 	'ffgt-banner',
 	'ffgt-config-mode-wizard',
 	'ffgt-preserve-mods',
@@ -34,7 +34,8 @@ packages {
 	'ffac-autoupdater-wifi-fallback',
 	'gluon-multi-radio',
 	'ffX-migrate-to-4830',
-	'ffgt-eol-device'
+	'ffgt-eol-device',
+	'ffda-node-whisperer'
 }
 
 if not device_class('tiny') then
