@@ -2,7 +2,7 @@ GLUON_SITE_FEEDS="community ffac ffgt"
 
 PACKAGES_COMMUNITY_REPO=https://github.com/freifunk-gluon/community-packages.git
 PACKAGES_COMMUNITY_COMMIT=4a90cd221e8eba254ffc8dc5addbf3374b830415
-PACKAGES_COMMUNITY_BRANCH=v2023.2.x
+PACKAGES_COMMUNITY_BRANCH=91e5fa8a253b1c5cf73fca7f5f519520cf6c90c2
 
 PACKAGES_FFAC_REPO=https://github.com/ffac/gluon-packages.git
 PACKAGES_FFAC_COMMIT=c66e741cc08800e53887cf05c7b4e3dc9b8c84f6
