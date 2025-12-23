@@ -18,7 +18,7 @@ features {
 
 packages {
     'iwinfo',
-    'ffgt-ssid-changer',
+    'ffac-ssid-changer',
     'respondd-module-airtime',
     'tecff-general-workaround',
     'tecff-broken-wlan-workaround',
@@ -35,7 +35,8 @@ packages {
 	'gluon-multi-radio',
 	'ffX-migrate-to-4830',
 	'ffgt-eol-device',
-	'ffda-node-whisperer'
+	'ffda-node-whisperer',
+	'4830-node-watchdog'
 }
 
 if not device_class('tiny') then
@@ -224,9 +225,9 @@ if target('bcm27xx') then
     packages(pkgs_usb_hid)
 end
 
-if target('ramips', 'mt7621') or target('ramips', 'mt7622') or target('mediatek', 'filogic') then
-	-- restart device if mt7915e driver shows known failure symptom
+if target('ipq40xx-generic', 'avm-fritz-box-7530') or target('ipq40xx-generic', 'avm-fritz-box-7520') then
 	packages {
-		'ffac-mt7915-hotfix',
+		'ffac-dsl',
+		'ffac-web-dsl',
 	}
 end
