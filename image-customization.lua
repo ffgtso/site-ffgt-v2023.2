@@ -36,7 +36,8 @@ packages {
 	'ffX-migrate-to-4830',
 	'ffgt-eol-device',
 	'ffda-node-whisperer',
-	'4830-node-watchdog'
+	'4830-node-watchdog',
+	'wpa-supplicant-mini'
 }
 
 if not device_class('tiny') then
