@@ -197,7 +197,7 @@ if include_usb then
     packages(pkgs_usb_net)
     packages(pkgs_usb_serial)
     packages(pkgs_usb_storage)
-    packages {'ffka-gluon-web-usb-wan-hotplug', 'ffac-update-location-gps'}
+    packages {'ffka-gluon-web-usb-wan-hotplug'}
 end
 
 -- device has no reset button and requires a special package to go into setup mode
@@ -231,4 +231,10 @@ if target('ipq40xx-generic', 'avm-fritz-box-7530') or target('ipq40xx-generic', 
 		'ffac-dsl',
 		'ffac-web-dsl',
 	}
+end
+
+-- add package with preparation scripts to change partition table
+-- and upgrade to FW 2.1.0
+if device({'ubiquiti-edgerouter-x', 'ubiquiti-edgerouter-x-sfp',}) then
+	packages { 'ffgt-erx-prep', }
 end
