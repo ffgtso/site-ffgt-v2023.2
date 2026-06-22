@@ -47,7 +47,9 @@ if not device_class('tiny') then
     }
     packages {
         'openssh-sftp-server',
-        'ffda-gluon-usteer'
+        'ffda-gluon-usteer',
+        'gluon-pump',
+        'gluon-l2tp-batman-server',
     }
 end
 
